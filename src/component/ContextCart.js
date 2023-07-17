@@ -4,7 +4,7 @@ import Item from './Item';
 import { CartContext } from './Cart';
 
 const ContextCart = () => {
-    const {item, clearCart} = useContext(CartContext)
+    const {item, clearCart, totalItem, totalAmount } = useContext(CartContext)
   return (
     <>
      <header>
@@ -14,12 +14,12 @@ const ContextCart = () => {
                 </div>
                 <div className='cart-icon'>
                     <img src='./images/cart.png' alt='cart' />
-                    <p>7</p>
+                    <p>{totalItem}</p>
                 </div>
             </header>
             <section className='main-cart-section'>
                 <h1>Shopping Cart</h1>
-                <p className='total-items'>You have <span className='total-items-count'>7</span> items in shopping cart</p>
+                <p className='total-items'>You have <span className='total-items-count'>{totalItem}</span> items in shopping cart</p>
                 <div className='cart-items'>
                     <div className='cart-items-container'>
                     <Scrollbars>
@@ -34,7 +34,7 @@ const ContextCart = () => {
                     </div>
                 </div>
                 <div className='card-total'>
-                 <h3>Cart Total : <span>2200rs</span></h3>
+                 <h3>Cart Total : <span>{totalAmount}</span></h3>
                  <button>Checkout</button>
                  <button className='delete' onClick={clearCart}>Clear Cart</button>
                 </div> 
